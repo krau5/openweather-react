@@ -29,7 +29,10 @@ h1, h2, h3, h4, h5, h6 {
   width: 15vw;
 }
 .ui.button.back {
-  width: 17.5vw !important;
+  width: 15vw !important;
+}
+.ui.stacked.segments {
+  width: 50vw;
 }
 
 /* margin */

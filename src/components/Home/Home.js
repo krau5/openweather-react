@@ -1,15 +1,14 @@
 import React from 'react';
 
-import {
-  Select, Grid, Button
-} from 'semantic-ui-react';
+import { Grid, Button }from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { useDispatch, connect } from 'react-redux';
 
-import { citiesList } from '../Cities';
 import { getUserWeather } from '../../redux/actions';
-import { useDispatch } from 'react-redux';
+import { Weather } from '../Weather';
 
-export const Home = () => {
+
+const Home = ({weather}) => {
 
   const dispatch = useDispatch();
 
@@ -28,16 +27,25 @@ export const Home = () => {
     <Grid>
       <Grid.Row>
         <Button primary onClick={() => userLocation()}>
-          Узнай погоду за окном
+          Find out the weather outside
         </Button>
+        {Object.keys(weather).length > 0 &&
+          <Weather info={weather}/>
+        }
         <Link to="/cities">
-          <Select 
-            placeholder="Либо в другом городе"
-            options={citiesList}
-            className="mt-5"
-          />
+          <Button className="mt-mid">
+            Or Choose the city you need
+          </Button>
         </Link>
       </Grid.Row>
     </Grid>
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    weather: state.userWeather
+  }
+}
+
+export default connect(mapStateToProps, null)(Home);
