@@ -8,10 +8,20 @@ import { Link } from 'react-router-dom';
 import { citiesList } from '../Cities';
 
 export const Home = () => {
+  const userLocation = () => {
+    const success = (pos) => {
+      const location = {
+       lat: pos.coords.latitude,
+       lng: pos.coords.longitude,
+      }
+      console.log(location);
+    }
+    navigator.geolocation.getCurrentPosition(success, console.log)
+  }
   return (
     <Grid>
       <Grid.Row>
-        <Button primary>
+        <Button primary onClick={() => userLocation()}>
           Узнай погоду за окном
         </Button>
         <Link to="/cities">

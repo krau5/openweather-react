@@ -14,6 +14,9 @@ export const citiesList = [
 ]
 
 export const Cities = () => {
+  const selectedCity = (city) => {
+    console.log(city);
+  }
   return (
     <Grid>
       <Grid.Row>
@@ -21,8 +24,12 @@ export const Cities = () => {
           placeholder="Выберите нужный вам город"
           options={citiesList}
           className="mt-mid"
+          onChange={(e, {value}) => selectedCity(value)}
         />
-        <Button color="green" className="mt-mid">
+        <Button
+          color="green"
+          className="mt-mid"
+        >
           Узнать погоду
         </Button>
         <Link to="/">
