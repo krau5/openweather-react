@@ -6,18 +6,24 @@ import {
 import { Link } from 'react-router-dom';
 
 import { citiesList } from '../Cities';
+import { getUserWeather } from '../../redux/actions';
+import { useDispatch } from 'react-redux';
 
 export const Home = () => {
+
+  const dispatch = useDispatch();
+
   const userLocation = () => {
     const success = (pos) => {
       const location = {
        lat: pos.coords.latitude,
        lng: pos.coords.longitude,
       }
-      console.log(location);
+      dispatch(getUserWeather(location));
     }
     navigator.geolocation.getCurrentPosition(success, console.log)
   }
+
   return (
     <Grid>
       <Grid.Row>

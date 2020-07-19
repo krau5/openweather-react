@@ -9,7 +9,7 @@ import {
 // components
 import { HomeHeader } from './components/Home/HomeHeader.js';
 import { Home } from './components/Home/Home.js';
-import { Cities } from './components/Cities.js';
+import Cities from './components/Cities.js';
 
 // styles
 import './styles/App.css';

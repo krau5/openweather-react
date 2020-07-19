@@ -1,9 +1,12 @@
 import React from 'react';
 
+import { useDispatch, connect } from 'react-redux';
+
 import { 
   Button, Grid, Select
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { getCityWeather, changeSelectedCity } from '../redux/actions';
 
 export const citiesList = [
   { value: 'lviv', text: 'Львов' },
@@ -13,10 +16,13 @@ export const citiesList = [
   { value: 'amsterdam', text: 'Амстердам' }
 ]
 
-export const Cities = () => {
-  const selectedCity = (city) => {
-    console.log(city);
+const Cities = ({selectedCity, weather}) => {
+  const dispatch = useDispatch();
+  
+  const onChangeSelect = (city) => {
+    dispatch(changeSelectedCity(city))
   }
+
   return (
     <Grid>
       <Grid.Row>
@@ -24,11 +30,12 @@ export const Cities = () => {
           placeholder="Выберите нужный вам город"
           options={citiesList}
           className="mt-mid"
-          onChange={(e, {value}) => selectedCity(value)}
+          onChange={(e, {value}) => onChangeSelect(value)}
         />
         <Button
           color="green"
           className="mt-mid"
+          onClick={() => {dispatch(getCityWeather(selectedCity))}}
         >
           Узнать погоду
         </Button>
@@ -44,3 +51,12 @@ export const Cities = () => {
     </Grid>
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    selectedCity: state.city,
+    weather: state.weather
+  }
+}
+
+export default connect(mapStateToProps, null)(Cities);
