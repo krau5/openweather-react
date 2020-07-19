@@ -12,7 +12,7 @@ import { Home } from './components/Home/Home.js';
 import { Cities } from './components/Cities.js';
 
 // styles
-import './App.css';
+import './styles/App.css';
 
 function App() {
   return (

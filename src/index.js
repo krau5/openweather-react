@@ -3,11 +3,31 @@ import { render } from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// redux
+import { createStore, compose} from 'redux';
+import { Provider } from 'react-redux';
+import { rootReducer } from './redux/rootReducer';
+
+// styles
 import 'semantic-ui-css/semantic.min.css'
-import './index.css';
+import './styles/index.css';
+
+// store
+const store = createStore(
+  rootReducer,
+  compose(
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+)
+
+const app = (
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
 
 render(
-  <App />,
+  app,
   document.getElementById('root')
 );
 
