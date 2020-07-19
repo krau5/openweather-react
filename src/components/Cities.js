@@ -6,45 +6,39 @@ import {
   Button, Grid, Select
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { getCityWeather, changeSelectedCity } from '../redux/actions';
+import { getCityWeather } from '../redux/actions';
+import { Weather } from './Weather';
 
 export const citiesList = [
-  { value: 'lviv', text: 'Львов' },
-  { value: 'moscow', text: 'Москва' },
-  { value: 'london', text: 'Лондон' },
-  { value: 'munich', text: 'Мюнхен' },
-  { value: 'amsterdam', text: 'Амстердам' }
+  { value: 'lviv', text: 'Lviv' },
+  { value: 'moscow', text: 'Moscow' },
+  { value: 'london', text: 'London' },
+  { value: 'munich', text: 'Munich' },
+  { value: 'amsterdam', text: 'Amsterdam' },
+  { value: 'toronto', text: 'Toronto' }
 ]
 
-const Cities = ({selectedCity, weather}) => {
+const Cities = ({weather}) => {
   const dispatch = useDispatch();
   
-  const onChangeSelect = (city) => {
-    dispatch(changeSelectedCity(city))
-  }
-
   return (
     <Grid>
       <Grid.Row>
         <Select
-          placeholder="Выберите нужный вам город"
+          placeholder="Choose the city you need"
           options={citiesList}
           className="mt-mid"
-          onChange={(e, {value}) => onChangeSelect(value)}
+          onChange={(e, {value}) => dispatch(getCityWeather(value))}
         />
-        <Button
-          color="green"
-          className="mt-mid"
-          onClick={() => {dispatch(getCityWeather(selectedCity))}}
-        >
-          Узнать погоду
-        </Button>
+        {Object.keys(weather).length > 0 &&
+          <Weather info={weather}/>
+        }
         <Link to="/">
           <Button
             primary
-            className="back mt-5"
+            className="back mt-mid"
           >
-            Вернуться
+            Back
           </Button>
         </Link>
       </Grid.Row>
@@ -54,8 +48,7 @@ const Cities = ({selectedCity, weather}) => {
 
 const mapStateToProps = (state) => {
   return {
-    selectedCity: state.city,
-    weather: state.weather
+    weather: state.cityWeather
   }
 }
 

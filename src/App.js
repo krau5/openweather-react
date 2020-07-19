@@ -8,7 +8,7 @@ import {
 
 // components
 import { HomeHeader } from './components/Home/HomeHeader.js';
-import { Home } from './components/Home/Home.js';
+import Home from './components/Home/Home.js';
 import Cities from './components/Cities.js';
 
 // styles

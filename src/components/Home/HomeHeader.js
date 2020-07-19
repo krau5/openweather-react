@@ -6,7 +6,7 @@ export const HomeHeader = () => {
   return (
     <Grid>
       <Grid.Row>
-        <Header block as="h2" className="block-header">Тут ты можешь узнать погоду в своем и других городах.<br/><small>Наслаждайся:)</small></Header>
+        <Header block as="h2" className="block-header">Here you can find out the weather in your and other cities<br/><small>Enjoy:)</small></Header>
       </Grid.Row>
     </Grid>
   );

@@ -25,17 +25,9 @@ export const getUserWeather = (location) => {
       .then(response => response.json())
       .then(weather => {
         dispatch({
-          type: CITY_WEATHER,
+          type: USER_WEATHER,
           payload: weather
         })
       });
-  }
-}
-
-export const CHANGE_CITY = 'CHANGE_CITY';
-export const changeSelectedCity = (city) => {
-  return {
-    type: CHANGE_CITY,
-    payload: city
   }
 }
