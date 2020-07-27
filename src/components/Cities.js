@@ -6,7 +6,7 @@ import {
   Button, Grid, Select
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { getCityWeather } from '../redux/actions';
+import { getCityWeather, CITY_WEATHER } from '../redux/actions';
 import { Weather } from './Weather';
 
 export const citiesList = [
@@ -28,7 +28,7 @@ const Cities = ({weather}) => {
           placeholder="Choose the city you need"
           options={citiesList}
           className="mt-mid"
-          onChange={(e, {value}) => dispatch(getCityWeather(value))}
+          onChange={(e, {value}) => dispatch(getCityWeather(value, CITY_WEATHER))}
         />
         {Object.keys(weather).length > 0 &&
           <Weather info={weather}/>

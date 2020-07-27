@@ -42,3 +42,14 @@ h1, h2, h3, h4, h5, h6 {
 .mt-mid {
   margin-top: 1.5vh !important;
 }
+
+/* input */
+.ui.input {
+  width: 15vw;
+}
+
+/* warning */
+.ui.warning.message {
+  width: 50vw;
+  margin-left: 25vw;
+}

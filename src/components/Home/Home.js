@@ -32,6 +32,11 @@ const Home = ({weather}) => {
         {Object.keys(weather).length > 0 &&
           <Weather info={weather}/>
         }
+        <Link to="/search">
+          <Button className="mt-mid">
+            Search the city you want
+          </Button>
+        </Link>
         <Link to="/cities">
           <Button className="mt-mid">
             Or Choose the city you need
