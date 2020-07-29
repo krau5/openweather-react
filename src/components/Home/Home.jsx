@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, connect } from 'react-redux';
 
 import { getUserWeather } from '../../redux/actions';
-import { Weather } from '../Weather';
+import { Weather } from '../Weather.jsx';
 
 
 const Home = ({weather}) => {

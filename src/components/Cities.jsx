@@ -7,7 +7,7 @@ import {
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { getCityWeather, CITY_WEATHER } from '../redux/actions';
-import { Weather } from './Weather';
+import { Weather } from './Weather.jsx';
 
 export const citiesList = [
   { value: 'lviv', text: 'Lviv' },

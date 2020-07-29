@@ -4,7 +4,7 @@ import { useDispatch, connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getCityWeather, SEARCH_WEATHER } from '../redux/actions';
-import { Weather } from './Weather';
+import { Weather } from './Weather.jsx';
 
 const UserSearch = ({weather}) => {
   const dispatch = useDispatch()

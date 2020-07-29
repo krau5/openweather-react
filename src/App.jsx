@@ -7,11 +7,11 @@ import {
 } from "react-router-dom";
 
 // components
-import { HomeHeader } from './components/Home/HomeHeader.js';
-import Home from './components/Home/Home.js';
-import Cities from './components/Cities.js';
-import UserSearch from './components/Search.js';
-import Err from './components/Error.js';
+import { HomeHeader } from './components/Home/HomeHeader.jsx';
+import Home from './components/Home/Home.jsx';
+import Cities from './components/Cities.jsx';
+import UserSearch from './components/Search.jsx';
+import Err from './components/Error.jsx';
 
 // styles
 import './styles/App.css';
