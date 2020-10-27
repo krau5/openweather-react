@@ -1,12 +1,9 @@
 import React from 'react';
-
-// router
 import {
   BrowserRouter as Router,
   Switch, Route
 } from "react-router-dom";
 
-// components
 import { HomeHeader } from './components/Home/HomeHeader.jsx';
 import Home from './components/Home/Home.jsx';
 import Cities from './components/Cities.jsx';
